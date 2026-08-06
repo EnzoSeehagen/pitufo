@@ -18,7 +18,6 @@ export default function App() {
     screen,
     setScreen,
     mode,
-    practice,
     game,
     current,
     toasts,
@@ -64,7 +63,6 @@ export default function App() {
         </button>
         <div className="topbar-center">
           <strong>{MODE_LABEL[mode]}</strong>
-          <span>{practice ? "prática" : "diário"}</span>
         </div>
         <div className="attempts-pill" title="Tentativas restantes">
           {game ? game.attempts_left : "–"}

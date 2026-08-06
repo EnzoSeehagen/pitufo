@@ -257,6 +257,10 @@ button {
   gap: 0.45rem;
 }
 
+.mode-play {
+  width: 100%;
+}
+
 .btn {
   border-radius: 8px;
   padding: 0.72rem 0.85rem;

@@ -23,7 +23,7 @@ export default function ModeSelector({ onSelect, loading }) {
     <section className="home">
       <header className="hero">
         <BrandTitle />
-        <p className="tagline">Descubra a palavra. Sem drama visual — só o jogo.</p>
+        <p className="tagline">Cada partida sorteia uma palavra nova.</p>
       </header>
 
       <div className="mode-list">
@@ -33,24 +33,14 @@ export default function ModeSelector({ onSelect, loading }) {
               <h2>{mode.title}</h2>
               <p>{mode.blurb}</p>
             </div>
-            <div className="mode-actions">
-              <button
-                type="button"
-                className="btn primary"
-                disabled={loading}
-                onClick={() => onSelect(mode.id, false)}
-              >
-                {loading ? "Abrindo…" : "Diário"}
-              </button>
-              <button
-                type="button"
-                className="btn ghost"
-                disabled={loading}
-                onClick={() => onSelect(mode.id, true)}
-              >
-                Prática
-              </button>
-            </div>
+            <button
+              type="button"
+              className="btn primary mode-play"
+              disabled={loading}
+              onClick={() => onSelect(mode.id, true)}
+            >
+              {loading ? "Abrindo…" : "Jogar"}
+            </button>
           </article>
         ))}
       </div>

@@ -7,7 +7,6 @@ from typing import Any, Literal
 from app.config import MODE_CONFIG, WORD_LENGTH
 from app.services.evaluation import Color, evaluate_guess
 from app.services.word_service import (
-    get_daily_words,
     get_random_words,
     is_valid_guess,
     normalize_word,
@@ -46,16 +45,12 @@ def create_game(mode: Mode, practice: bool = False) -> GameSession:
     board_count = config["boards"]
     max_attempts = config["max_attempts"]
 
-    answers = (
-        get_random_words(board_count)
-        if practice
-        else get_daily_words(mode, board_count)
-    )
+    answers = get_random_words(board_count)
 
     session = GameSession(
         game_id=str(uuid.uuid4()),
         mode=mode,
-        practice=practice,
+        practice=True,
         max_attempts=max_attempts,
         boards=[BoardState(answer=a) for a in answers],
     )
