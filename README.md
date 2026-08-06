@@ -8,6 +8,21 @@ Clone do [Termo](https://term.ooo) com modos **Termo**, **Dueto** e **Quarteto**
 - Frontend: React + Vite (JavaScript)
 - Infra: Docker Compose (API + Nginx)
 
+## Deploy na Vercel
+
+O app é um monorepo (`frontend` + `backend`). A Vercel **exige** um `vercel.json` com `services` — sem isso aparece o aviso *"vercel.json required to deploy projects with multiple services"*.
+
+1. Faça commit/push do `vercel.json` (já está na raiz do repo)
+2. Na Vercel, em **Settings → Build and Deployment**, defina o framework como **Services** (se a opção existir)
+3. **Root Directory** deve continuar `./` (raiz do repo)
+4. Clique em **Refresh** no banner e depois **Deploy**
+
+Rotas:
+- Frontend (Vite) → `/`
+- API (FastAPI) → `/api/*`
+
+> Observação: o estado das partidas fica em memória no processo da API. Em serverless isso pode “esquecer” jogos entre cold starts; para produção robusta use Redis/KV depois.
+
 ## Subir com Docker
 
 ```bash
