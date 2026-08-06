@@ -59,6 +59,15 @@ button {
   gap: 0.55rem;
 }
 
+/* Dueto/Quarteto: mais largura, perto do Termo desktop */
+.app--play.app--dueto {
+  width: min(100%, 720px);
+}
+
+.app--play.app--quarteto {
+  width: min(100%, 680px);
+}
+
 .app--home {
   overflow-y: auto;
 }
@@ -1037,5 +1046,166 @@ button {
   .app {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+}
+
+/* Desktop — Dueto / Quarteto no espírito do Termo */
+@media (min-width: 768px) {
+  .app--play.app--dueto {
+    width: min(100%, 820px);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    gap: 0.75rem;
+  }
+
+  .app--play.app--quarteto {
+    width: min(100%, 760px);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    gap: 0.75rem;
+  }
+
+  .app--play.app--termo {
+    width: min(100%, 520px);
+  }
+
+  .boards--dueto {
+    gap: 1.35rem;
+    max-width: 760px;
+    margin-inline: auto;
+    padding: 0.5rem 0;
+    align-items: start;
+  }
+
+  .boards--quarteto {
+    gap: 1.1rem 1.25rem;
+    max-width: 700px;
+    margin-inline: auto;
+    padding: 0.4rem 0;
+    align-items: start;
+  }
+
+  .boards--termo .board-panel {
+    width: min(100%, 360px);
+  }
+
+  .boards--dueto .board-panel,
+  .boards--quarteto .board-panel {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0.15rem;
+    box-shadow: none;
+    position: relative;
+  }
+
+  /* Separação limpa estilo Termo: trilho vertical / moldura leve */
+  .boards--dueto .board-panel::before,
+  .boards--quarteto .board-panel::before {
+    content: "";
+    position: absolute;
+    inset: -0.35rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0.9;
+  }
+
+  .boards--dueto .board-panel:nth-child(1)::before,
+  .boards--quarteto .board-panel:nth-child(1)::before {
+    border-color: #4a7eae;
+  }
+
+  .boards--dueto .board-panel:nth-child(2)::before,
+  .boards--quarteto .board-panel:nth-child(2)::before {
+    border-color: #3d9b8f;
+  }
+
+  .boards--quarteto .board-panel:nth-child(3)::before {
+    border-color: #c9a14a;
+  }
+
+  .boards--quarteto .board-panel:nth-child(4)::before {
+    border-color: #8b7bb8;
+  }
+
+  .boards--dueto .row,
+  .boards--quarteto .row {
+    gap: 0.35rem;
+  }
+
+  .boards--dueto .board {
+    gap: 0.35rem;
+  }
+
+  .boards--quarteto .board {
+    gap: 0.3rem;
+  }
+
+  .boards--dueto .cell {
+    font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+    border-width: 2px;
+    border-radius: 4px;
+  }
+
+  .boards--quarteto .cell {
+    font-size: clamp(0.95rem, 1.8vw, 1.25rem);
+    border-width: 2px;
+    border-radius: 4px;
+  }
+
+  .board-panel__label {
+    margin-bottom: 0.15rem;
+    font-size: 0.78rem;
+    min-width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .app--play .keyboard-dock {
+    width: min(100%, 540px);
+    margin-inline: auto;
+    padding-top: 0.5rem;
+  }
+
+  .app--play .key {
+    max-width: 2.7rem;
+    min-height: 3.35rem;
+    font-size: 0.95rem;
+  }
+
+  .app--play .key--wide {
+    max-width: 4.1rem;
+  }
+
+  .keyboard-row {
+    gap: 0.42rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .app--play.app--dueto {
+    width: min(100%, 900px);
+  }
+
+  .app--play.app--quarteto {
+    width: min(100%, 820px);
+  }
+
+  .boards--dueto {
+    gap: 1.75rem;
+    max-width: 840px;
+  }
+
+  .boards--quarteto {
+    gap: 1.35rem 1.6rem;
+    max-width: 760px;
+  }
+
+  .boards--dueto .cell {
+    font-size: 1.6rem;
+  }
+
+  .boards--quarteto .cell {
+    font-size: 1.3rem;
   }
 }
