@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import BrandTitle from "./BrandTitle.jsx";
 import PixelCat from "./PixelCat.jsx";
 
-export default function SplashLoader({ onDone, minMs = 5600 }) {
+export default function SplashLoader({ onDone, minMs = 6200 }) {
   const [phase, setPhase] = useState("drop"); // drop -> play -> motto -> out
 
   useEffect(() => {
-    const tPlay = window.setTimeout(() => setPhase("play"), 1200);
-    const tMotto = window.setTimeout(() => setPhase("motto"), 3200);
+    const tPlay = window.setTimeout(() => setPhase("play"), 1100);
+    const tMotto = window.setTimeout(() => setPhase("motto"), 3800);
     const tOut = window.setTimeout(() => setPhase("out"), minMs);
-    const tDone = window.setTimeout(() => onDone?.(), minMs + 450);
+    const tDone = window.setTimeout(() => onDone?.(), minMs + 480);
     return () => {
       window.clearTimeout(tPlay);
       window.clearTimeout(tMotto);
