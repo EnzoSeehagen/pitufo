@@ -163,6 +163,11 @@ button {
   opacity: 0.95;
 }
 
+/* O wrapper da direita espelha o gato; desfaz o espelho só no texto */
+.splash__cat--right .splash__cat-label {
+  transform: scaleX(-1);
+}
+
 .splash__cat--left {
   left: 0;
   bottom: -0.15rem;
