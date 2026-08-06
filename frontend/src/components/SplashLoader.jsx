@@ -23,11 +23,17 @@ export default function SplashLoader({ onDone, minMs = 6200 }) {
       <div className="splash__glow" aria-hidden />
 
       <div className="splash__stage" aria-hidden>
-        <PixelCat variant="black" className="pixel-cat--left" />
+        <div className="splash__cat splash__cat--left">
+          <PixelCat variant="black" className="pixel-cat--left" />
+          <span className="splash__cat-label">Sim, é a Sage</span>
+        </div>
         <div className="splash__title-wrap">
           <BrandTitle gelatin />
         </div>
-        <PixelCat variant="white" className="pixel-cat--right" />
+        <div className="splash__cat splash__cat--right">
+          <PixelCat variant="white" className="pixel-cat--right" />
+          <span className="splash__cat-label">E essa é a Ahri</span>
+        </div>
       </div>
 
       <p className={`splash__motto ${phase === "motto" || phase === "out" ? "is-visible" : ""}`}>

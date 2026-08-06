@@ -129,50 +129,85 @@ button {
 }
 
 .pixel-cat {
-  position: absolute;
+  position: relative;
   z-index: 3;
+  left: auto;
+  right: auto;
+  bottom: auto;
   width: clamp(56px, 16vw, 76px);
   height: auto;
   image-rendering: pixelated;
   filter: drop-shadow(0 3px 0 rgba(0, 0, 0, 0.28));
+  opacity: 1;
+  will-change: transform;
+}
+
+.splash__cat {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
   opacity: 0;
   will-change: transform;
 }
 
-.pixel-cat--left {
+.splash__cat-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+  white-space: nowrap;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+  opacity: 0.95;
+}
+
+.splash__cat--left {
   left: 0;
-  bottom: 0.05rem;
+  bottom: -0.15rem;
   animation: cat-left-enter 1.15s cubic-bezier(0.22, 1.2, 0.36, 1) 0.25s both;
 }
 
-.pixel-cat--right {
+.splash__cat--right {
   right: 0;
-  bottom: 0.05rem;
+  bottom: -0.15rem;
   animation: cat-right-enter 1.15s cubic-bezier(0.22, 1.2, 0.36, 1) 0.45s both;
 }
 
-.splash--play .pixel-cat--left {
+.splash--play .splash__cat--left {
   animation:
     cat-left-enter 1.15s cubic-bezier(0.22, 1.2, 0.36, 1) both,
     cat-left-play 1.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) 0.05s infinite;
 }
 
-.splash--play .pixel-cat--right {
+.splash--play .splash__cat--right {
   animation:
     cat-right-enter 1.15s cubic-bezier(0.22, 1.2, 0.36, 1) both,
     cat-right-play 1.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) 0.3s infinite;
 }
 
-.splash--motto .pixel-cat--left,
-.splash--out .pixel-cat--left {
+.splash--motto .splash__cat--left,
+.splash--out .splash__cat--left {
   animation: cat-left-sit 0.65s cubic-bezier(0.22, 1.15, 0.36, 1) both;
   opacity: 1;
 }
 
-.splash--motto .pixel-cat--right,
-.splash--out .pixel-cat--right {
+.splash--motto .splash__cat--right,
+.splash--out .splash__cat--right {
   animation: cat-right-sit 0.65s cubic-bezier(0.22, 1.15, 0.36, 1) both;
   opacity: 1;
+}
+
+/* keep SVG itself unmoved; wrapper animates */
+.pixel-cat--left,
+.pixel-cat--right {
+  animation: none !important;
+  opacity: 1 !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  position: relative !important;
 }
 
 .splash__motto {
