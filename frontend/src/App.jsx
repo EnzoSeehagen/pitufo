@@ -75,6 +75,7 @@ export default function App() {
         {game?.board_states.map((board, idx) => (
           <Board
             key={idx}
+            label={mode !== "termo" ? String(idx + 1) : ""}
             rows={board.rows}
             solved={board.solved}
             current={current}

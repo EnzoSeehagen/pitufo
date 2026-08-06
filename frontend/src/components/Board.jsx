@@ -18,6 +18,7 @@ export default function Board({
   wordLength,
   showDraft,
   flipRow = -1,
+  label = "",
 }) {
   const displayRows = [];
   for (let i = 0; i < maxAttempts; i += 1) {
@@ -40,23 +41,26 @@ export default function Board({
   }
 
   return (
-    <div className={`board ${solved ? "board--solved" : ""}`}>
-      {displayRows.map((row, rowIdx) => (
-        <div
-          key={rowIdx}
-          className={`row ${row.kind === "draft" && shake ? "row--shake" : ""}`}
-        >
-          {row.cells.map((cell, cellIdx) => (
-            <Cell
-              key={cellIdx}
-              letter={cell.letter}
-              color={cell.color}
-              flip={rowIdx === flipRow && Boolean(cell.color)}
-              delay={cellIdx * 80}
-            />
-          ))}
-        </div>
-      ))}
+    <div className={`board-panel ${solved ? "board-panel--solved" : ""}`}>
+      {label ? <div className="board-panel__label">{label}</div> : null}
+      <div className={`board ${solved ? "board--solved" : ""}`}>
+        {displayRows.map((row, rowIdx) => (
+          <div
+            key={rowIdx}
+            className={`row ${row.kind === "draft" && shake ? "row--shake" : ""}`}
+          >
+            {row.cells.map((cell, cellIdx) => (
+              <Cell
+                key={cellIdx}
+                letter={cell.letter}
+                color={cell.color}
+                flip={rowIdx === flipRow && Boolean(cell.color)}
+                delay={cellIdx * 80}
+              />
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
