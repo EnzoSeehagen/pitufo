@@ -726,6 +726,41 @@ button {
   animation: toast-soft 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.toast--with-cat {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-align: left;
+  padding: 0.55rem 0.85rem 0.55rem 0.55rem;
+}
+
+.toast__cat {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  min-width: 3.1rem;
+}
+
+.toast__cat .pixel-cat {
+  width: 44px;
+  height: auto;
+  filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.25));
+}
+
+.toast__cat-name {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.toast__text {
+  flex: 1;
+}
+
 .toast--error {
   background: #f8e8e8;
   color: #6e1f1f;
@@ -737,6 +772,10 @@ button {
   border: 1px solid #3a4d6b;
 }
 
+.toast--roast .toast__cat-name {
+  color: #ffe8a8;
+}
+
 .toast--success {
   background: #dff5f1;
   color: #0f3d37;
@@ -745,6 +784,49 @@ button {
 .toast--info {
   background: #e8eef8;
   color: #1a2a44;
+}
+
+/* Gatinha se lambendo */
+.pixel-cat--licking .pixel-cat__head {
+  transform-origin: 50% 70%;
+  animation: cat-lick-head 0.7s ease-in-out infinite;
+}
+
+.pixel-cat--licking .pixel-cat__tongue-tip {
+  transform-origin: 50% 0%;
+  animation: cat-lick-tongue 0.7s ease-in-out infinite;
+}
+
+@keyframes cat-lick-head {
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  35% {
+    transform: rotate(10deg) translateY(1px);
+  }
+  55% {
+    transform: rotate(14deg) translateY(2px);
+  }
+  75% {
+    transform: rotate(6deg) translateY(0);
+  }
+}
+
+@keyframes cat-lick-tongue {
+  0%,
+  100% {
+    transform: scaleY(0.55) translateY(-1px);
+    opacity: 0.85;
+  }
+  40% {
+    transform: scaleY(1.15) translateY(1px);
+    opacity: 1;
+  }
+  70% {
+    transform: scaleY(0.9) translateY(0);
+    opacity: 1;
+  }
 }
 
 .result {

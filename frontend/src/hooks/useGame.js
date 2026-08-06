@@ -65,9 +65,9 @@ export function useGame() {
   }, []);
 
   const pushToast = useCallback(
-    (text, type = "info", duration = 2400) => {
+    (text, type = "info", duration = 2400, extras = {}) => {
       const id = ++toastId;
-      setToasts([{ id, text, type }]);
+      setToasts([{ id, text, type, ...extras }]);
       window.setTimeout(() => dismissToast(id), duration);
     },
     [dismissToast]
@@ -80,7 +80,8 @@ export function useGame() {
       }
       if (hintedRef.current === data.game_id) return;
       hintedRef.current = data.game_id;
-      pushToast(formatHintRoast(data.hints), "roast", 7000);
+      const cat = Math.random() < 0.5 ? "black" : "white";
+      pushToast(formatHintRoast(data.hints), "roast", 7500, { cat });
     },
     [pushToast]
   );
